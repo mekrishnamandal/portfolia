@@ -1054,19 +1054,25 @@
                     </div>
                 </div>
                 
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Your Name" required>
+<div class="contact-form">
+    <form action="https://formsubmit.co/krishna.official176@gmail.com" method="POST">
+        <!-- Required FormSubmit fields -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://mekrishnamandal.github.io/portfolio/thankyou.html">
+        
+        <!-- Your form fields -->
+                    <div class="form-group">
+                            <input type="text" name="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Your Email" required>
+                            <input type="email" name="email" class="form-control" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Subject" required>
+                            <input type="text" name="_subject" class="form-control" placeholder="Subject" required>
                         </div>
                         <div class="form-group">
-                            <textarea class="form-control" placeholder="Your Message" required></textarea>
+                            <textarea name="message" class="form-control" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-accent">Send Message</button>
                     </form>
