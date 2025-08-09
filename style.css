@@ -1,0 +1,361 @@
+/* |
+
+| Base Styles: Global settings for the entire page */
+:root {
+    /* Professional Color Palette: Modern Professional [1, 2, 3] */
+    --color-background: #F8F8F9; /* Very light gray/off-white for cleanliness */
+    --color-primary-text: #2C3E50; /* Deep Blue/Charcoal for main text, conveys trust [4] */
+    --color-secondary-text: #7F8C8D; /* Soft Gray for subtle text */
+    --color-accent: #4D96FF; /* Vibrant Blue for highlights and interactive elements, conveys innovation [2] */
+    --color-accent-dark: #0056b3; /* Darker blue for hover states [5] */
+
+    /* Typography: Montserrat for headings, Roboto for body [6, 7] */
+    --font-heading: 'Montserrat', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+
+    --spacing-unit: 1rem; /* Define a base spacing unit (16px) for consistency */
+}
+
+/* Universal box-sizing for consistent layout */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    line-height: 1.6; /* Good line height for readability [8, 9, 10] */
+    color: var(--color-primary-text);
+    background-color: var(--color-background);
+    padding: calc(var(--spacing-unit) * 2); /* Overall padding around the body */
+}
+
+/* Headings for clear visual hierarchy [11, 8, 12] */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    color: var(--color-primary-text);
+    margin-bottom: var(--spacing-unit);
+}
+
+h1 {
+    font-size: 2.5rem; /* Larger for main title */
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center; /* Center section titles */
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+p {
+    margin-bottom: var(--spacing-unit);
+}
+
+/* Link styling */
+a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease; /* Smooth transition for hover effects [13] */
+}
+
+a:hover {
+    color: var(--color-accent-dark);
+    text-decoration: underline;
+}
+
+/* |
+
+| Layout Rules (l-): Defines major sections of the page [14, 15] */
+.l-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calc(var(--spacing-unit) * 4) 0;
+    background-color: #FFFFFF; /* Clean white background for header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow for depth */
+    margin-bottom: calc(var(--spacing-unit) * 2);
+    border-radius: 8px; /* Rounded corners for a polished look */
+}
+
+.header__content {
+    display: flex;
+    flex-direction: row; /* Photo and text side-by-side on larger screens [16] */
+    align-items: center;
+    max-width: 1200px; /* Max width for content container */
+    width: 90%; /* Responsive width */
+    gap: calc(var(--spacing-unit) * 3); /* Spacing between photo and text */
+}
+
+.l-main {
+    max-width: 1200px;
+    margin: 0 auto; /* Center the main content area */
+    padding: calc(var(--spacing-unit) * 2) 0;
+}
+
+.l-footer {
+    background-color: var(--color-primary-text);
+    color: var(--color-background);
+    padding: calc(var(--spacing-unit) * 2) 0;
+    text-align: center;
+    margin-top: calc(var(--spacing-unit) * 4);
+    border-radius: 8px;
+}
+
+.footer__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-unit);
+}
+
+/* |
+
+| Module Rules (module-): Reusable components [14, 15] */
+
+/* Header Module */
+.header__photo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%; /* Circular image for a personal touch */
+    object-fit: cover; /* Ensures image covers the area without distortion */
+    border: 4px solid var(--color-accent); /* Accent border around the photo */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Soft shadow for the photo */
+}
+
+.header__text-content {
+    flex: 1; /* Allows text content to take remaining space */
+}
+
+.header__title {
+    margin-bottom: 0.5rem;
+}
+
+.header__tagline {
+    font-size: 1.1rem;
+    color: var(--color-secondary-text);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Button Module (BEM: btn, btn--primary, btn--secondary) */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    border-radius: 5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease; /* Smooth hover effects [5, 13] */
+    cursor: pointer;
+}
+
+.btn--primary {
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    border: 2px solid var(--color-accent);
+}
+
+.btn--primary:hover {
+    background-color: var(--color-accent-dark);
+    border-color: var(--color-accent-dark);
+    transform: translateY(-2px); /* Subtle lift on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow on hover */
+    text-decoration: none; /* Remove underline on hover for buttons */
+}
+
+.btn--secondary {
+    background-color: #FFFFFF;
+    color: var(--color-accent);
+    border: 2px solid var(--color-accent);
+}
+
+.btn--secondary:hover {
+    background-color: var(--color-accent);
+    color: #FFFFFF;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: none;
+}
+
+/* General Section Module */
+.module-section {
+    background-color: #FFFFFF;
+    padding: calc(var(--spacing-unit) * 3);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: calc(var(--spacing-unit) * 2);
+}
+
+/* Skills Section Module */
+.skills-grid {
+    display: grid;
+    /* Responsive grid: auto-fit creates as many columns as fit, minmax ensures min width and max 1fr [16] */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: calc(var(--spacing-unit) * 1.5);
+}
+
+.skill-item {
+    background-color: var(--color-background);
+    padding: var(--spacing-unit);
+    border-radius: 5px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.skill-item__name {
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: var(--color-primary-text);
+}
+
+.skill-item__bar {
+    width: 100%;
+    height: 15px;
+    background-color: var(--color-secondary-text); /* Background of the bar track */
+    border-radius: 10px;
+    overflow: hidden; /* Ensures the fill stays within rounded corners */
+}
+
+.skill-item__fill {
+    display: block;
+    height: 100%;
+    background-color: var(--color-accent); /* Fill color of the bar */
+    border-radius: 10px;
+    /* Animation for skill bar fill-up [17, 18, 19] */
+    animation: fillSkillBar 1.5s ease-out forwards;
+}
+
+/* Projects Section Module */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: calc(var(--spacing-unit) * 2);
+}
+
+.project-card {
+    background-color: var(--color-background);
+    padding: calc(var(--spacing-unit) * 1.5);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect [5, 20] */
+}
+
+.project-card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+}
+
+.project-card__title {
+    margin-bottom: 0.5rem;
+    color: var(--color-accent);
+}
+
+.project-card__description {
+    font-size: 0.95rem;
+    color: var(--color-secondary-text);
+    margin-bottom: var(--spacing-unit);
+    flex-grow: 1; /* Allows description to take up available space */
+}
+
+.project-card__tech {
+    font-size: 0.85rem;
+    color: var(--color-primary-text);
+    margin-bottom: calc(var(--spacing-unit) * 1.5);
+}
+
+/* Footer Module */
+.footer__links {
+    display: flex;
+    gap: calc(var(--spacing-unit) * 1.5);
+}
+
+.footer__link {
+    color: var(--color-background);
+    font-weight: 500;
+}
+
+.footer__link:hover {
+    color: var(--color-accent); /* Hover effect for footer links */
+}
+
+/* |
+
+| Animations [17] */
+@keyframes fillSkillBar {
+    from { width: 0; }
+    /* 'width' is set inline on the span element (e.g., style="width: 90%;") */
+    to { width: attr(style width); } /* This is a conceptual representation. Actual width is read from inline style. */
+}
+
+/* |
+
+| Media Queries for Responsiveness [8, 16, 21] */
+@media (max-width: 768px) {
+   .header__content {
+        flex-direction: column; /* Stack photo and text vertically on smaller screens */
+        text-align: center;
+        gap: calc(var(--spacing-unit) * 2);
+    }
+
+   .header__photo {
+        margin-bottom: var(--spacing-unit);
+    }
+
+   .header__title {
+        font-size: 2rem;
+    }
+
+   .header__tagline {
+        font-size: 1rem;
+    }
+
+    /* Adjust padding for sections on smaller screens */
+   .l-header,.module-section,.l-footer {
+        padding-left: var(--spacing-unit);
+        padding-right: var(--spacing-unit);
+    }
+
+   .skills-grid,.projects-grid {
+        grid-template-columns: 1fr; /* Stack columns on small screens */
+    }
+
+   .footer__links {
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: var(--spacing-unit); /* Reduce overall padding on very small screens */
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.75rem;
+    }
+
+    h3 {
+        font-size: 1.25rem;
+    }
+
+   .header__photo {
+        width: 150px;
+        height: 150px;
+    }
+}
